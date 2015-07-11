@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#first lets apply system wide proxy setting
+if [ ! -f ~/.dotfiles/script/system-wide-set-proxy ]; then
+    echo "file system-wide-set-proxy does not exist"
+    exit
+fi
+#see if PROXY_SETTING is set
+if [ -z ${PROXY_SETTING+x} ]; then
+    echo "PROXY_SETTING is unset"
+    exit
+fi
+
+#git proxy setting
+git config --global http.proxy http://$PROXY_SETTING
+git config --global https.proxy https://$PROXY_SETTING
+
