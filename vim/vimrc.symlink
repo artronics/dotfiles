@@ -6,7 +6,8 @@ filetype plugin indent on
 "Colorscheme
 set background=dark
 colorscheme solarized
-set guifont=Menlo\ Regular:h17
+"On mac set font size to 17. On linux on 18
+set guifont=Menlo\ Regular:h18
 "General
 
 let mapleader = ","
