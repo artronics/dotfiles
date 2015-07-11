@@ -1,4 +1,88 @@
-syntax on
+set nocompatible
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+"Colorscheme
+set background=dark
+colorscheme solarized
+set guifont=Menlo\ Regular:h17
+"General
+
+let mapleader = ","
+
+set nowrap        " don't wrap lines
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set backspace=2 " make backspace work like most other apps
+
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set number        " always show line numbers
+"Setting related to tab
+set tabstop=4 shiftwidth=4 expandtab
+set softtabstop=4 " makes the spaces feel like real tabs
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                    "    case-sensitive otherwise
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                " change the terminal's title
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
+set mouse=a
+
+"save on losing focus
+"au FocusLost * silent! wa
+"This will save the file when you switch buffers, make it etc
+set autowriteall
+
+"Auto completion in file mode
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+ 
+
+"enable pastemode by f12
+set pastetoggle=<F2>
+
+"""""Key Binddings
+
+source ~/.vim/vimrc/vimrc_keybindings
+""""""PLUGINS""""""""
+"PHP Specific
+" Stop the location list opening automatically
+"let g:phpqa_open_loc = 0
+" Set the codesniffer args
+"let g:phpqa_codesniffer_args = "--standard=PSR1 -n"
+
+"AutoSave
+"let g:auto_save = 1  " enable AutoSave on Vim startup"
+
+
+
+"""" NERDTree
+"key map ctl-n
+ "map <C-n> :NERDTreeToggle<CR>
+"map <leader>c :NERDTreeToggle<CR>
+
+"Exit vim if the only window left open is nerdtree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+"open NERDTree if there is no file specified
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"Solve odd characters
+"let g:NERDTreeDirArrows=0
+
+
+"change cursor shape in iterm in os x
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+

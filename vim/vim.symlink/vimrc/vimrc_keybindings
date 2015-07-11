@@ -1,0 +1,113 @@
+"""""KEY BINDINGS
+
+let mapleader = ","
+
+imap jj <Esc>
+nnoremap ; :
+
+"nsert a new-line after the current line by pressing Enter (Shift-Enter for inserting a line before the current line)
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+"be coool!
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+nnoremap j gj
+nnoremap k gk
+
+"map tab to % for easier match *{[
+"nnoremap <tab> %
+"vnoremap <tab> %
+
+"Space in normal works like in insert
+nnoremap <Space> i<Space><Esc>
+"Backsapace in normal works like in insert
+nnoremap <BS> X 
+
+"Key bindings related to Tabs
+nnoremap <Leader>t :tabnew<CR>
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+"toggle between the current and last active tab
+let g:lasttab = 1
+nmap <C-Tab> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+"Resizing vspit
+nnoremap <silent> <Leader>+ :5winc ><CR>
+nnoremap <silent> <Leader>- :5winc <<CR>
+"Serch related keybindings
+"nnoremap / /\v
+"vnoremap / /\v
+"
+nnoremap <leader><space> :noh<cr>
+"""Easymotion Keybindings
+" Gif config
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+
+
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+""""""""""""
+
+"to navigate between windows
+nnoremap <S-h> <C-w>h
+nnoremap <S-j> <C-w>j
+nnoremap <S-k> <C-w>k
+nnoremap <S-l> <C-w>l
+
+"Enter ; at the end of line by pressing ;;
+inoremap ;; <Esc>A;<Esc>
+nnoremap ;; <Esc>A;<Esc>
+
+"Save and exit with ctrl-e
+noremap <C-e> :wq<CR>
+
+
+"when you forgot to sudo before editing a file that requires root 
+cmap w!! w !sudo tee % >/dev/null
+
+"open a new vertical split and switch over to it
+nnoremap <leader>w <C-w>v<C-w>l
+
+"Swap two words in camelCase
+nnoremap <leader>s ?[A-Z]<CR>:noh<CR>~hdwb~hhpw
+
+"Map space to underscore
+nnoremap <silent> <leader>_ :call <SID>SpaceToUnderscore()<CR>
+function! s:SpaceToUnderscore()
+    if !hasmapto('_', 'i')
+		inoremap <Space> _
+	else
+		iunmap <Space>
+	endif
+endfunction

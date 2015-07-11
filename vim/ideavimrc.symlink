@@ -1,0 +1,52 @@
+
+"""""KEY BINDINGS
+let mapleader = ","
+
+imap jj <Esc> 
+nnoremap ; :
+
+"nsert a new-line after the current line by pressing Enter (Shift-Enter for inserting a line before the current line)
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+"be coool!
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+#inoremap <up> <nop>
+#inoremap <down> <nop>
+#inoremap <left> <nop>
+#inoremap <right> <nop>
+
+nnoremap j gj
+nnoremap k gk
+
+"map tab to % for easier match *{[
+nnoremap <tab> %
+vnoremap <tab> %
+
+
+
+"to navigate between windows
+nnoremap <S-h> <C-w>h
+nnoremap <S-j> <C-w>j
+nnoremap <S-k> <C-w>k
+nnoremap <S-l> <C-w>l
+
+"Enter ; at the end of line by pressing ;;
+inoremap ;; <Esc>A;<Esc>
+nnoremap ;; <Esc>A;<Esc>
+
+"when you forgot to sudo before editing a file that requires root 
+cmap w!! w !sudo tee % >/dev/null
+
+"open a new vertical split and switch over to it
+nnoremap ,w <C-w>v<C-w>l
+
+"Swap two words in camelCase
+nnoremap ,s ?[A-Z]<CR>:noh<rc>~hdwb~hhpw
+hghShgj
+"Map space to underscore
+nnoremap <silent> ,_ <Space> _
+nnoremap <silent> ,_- :iunmap <Space><CR>
