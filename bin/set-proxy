@@ -11,7 +11,13 @@ if [ -z ${PROXY_SETTING+x} ]; then
     exit
 fi
 
+#run system wide proxy setting 
+~/.dotfiles/script/system-wide-set-proxy
+
 #git proxy setting
 git config --global http.proxy http://$PROXY_SETTING
 git config --global https.proxy https://$PROXY_SETTING
+echo "git proxy global configuration done!"
+
+exit
 
