@@ -57,7 +57,21 @@ set pastetoggle=<F2>
 """""Key Binddings
 
 source ~/.vim/vimrc/vimrc_keybindings
+
 """"""PLUGINS""""""""
+"for each plugin (if necessary) there is specific file including configuration
+"and keybindings. This file located on ~/.vim/plugins/<plugin-name>
+"first we need to check if that plugin exists, then we can source apropriate
+"file. Inorder to check whether plugin exists or not we can check a main
+"command.
+
+"vim-session
+autocmd VimEnter * if exists(":SaveSession") | exe "source ~/.vim/plugins/vim-session" | endif
+
+"if exists(':SaveSession')
+"    source ~/.vim/plugins/vim-session
+"endif
+    
 "this function dosen't work
 function! FileExists ()
    if filereadable("~/.vim/bundle/nerdtree/keybindings.vim")
