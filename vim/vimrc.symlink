@@ -64,9 +64,6 @@ function! FileExists ()
        echo "SpecificFile exists"
    endif
 endfunction
-if filereadable(glob("~/.vim/bundle/nerdtree/keybindings.vim")) 
-        source ~/.vim/bundle/nerdtree/keybindings.vim
-    endif
 ":call FileExists ()
 
 "PHP Specific

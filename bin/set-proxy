@@ -14,6 +14,13 @@ fi
 #run system wide proxy setting 
 ~/.dotfiles/script/system-wide-set-proxy
 
+#set http_proxy and https_proxy
+http_proxy=http://$PROXY_SETTING
+https_proxy=https://$PROXY_SETTING
+export http_proxy
+export https_proxy
+echo "http_proxy and https_proxy set done!"
+
 #git proxy setting
 git config --global http.proxy http://$PROXY_SETTING
 git config --global https.proxy https://$PROXY_SETTING
