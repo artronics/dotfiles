@@ -6,6 +6,7 @@ filetype plugin indent on
 "Colorscheme
 set background=dark
 colorscheme solarized
+
 "On mac set font size to 17. On linux on 18
 set guifont=Menlo\ Regular:h18
 
@@ -57,6 +58,17 @@ set pastetoggle=<F2>
 
 source ~/.vim/vimrc/vimrc_keybindings
 """"""PLUGINS""""""""
+"this function dosen't work
+function! FileExists ()
+   if filereadable("~/.vim/bundle/nerdtree/keybindings.vim")
+       echo "SpecificFile exists"
+   endif
+endfunction
+if filereadable(glob("~/.vim/bundle/nerdtree/keybindings.vim")) 
+        source ~/.vim/bundle/nerdtree/keybindings.vim
+    endif
+":call FileExists ()
+
 "PHP Specific
 " Stop the location list opening automatically
 "let g:phpqa_open_loc = 0
@@ -70,7 +82,7 @@ source ~/.vim/vimrc/vimrc_keybindings
 
 """" NERDTree
 "key map ctl-n
- "map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
 "map <leader>c :NERDTreeToggle<CR>
 
 "Exit vim if the only window left open is nerdtree
