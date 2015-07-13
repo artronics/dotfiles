@@ -1,0 +1,7 @@
+#!/bin/bash
+#Edit this configuration file before running ubuntu-init script
+
+#If you want to add a new language support add it here.
+#use two character language code. for example fa for farsi/persian and fr for french
+echo lirt
+export EXT_LANG=fa
