@@ -7,9 +7,15 @@ filetype plugin indent on
 set background=dark
 colorscheme solarized
 
-"On mac set font size to 17. On linux on 18
-set guifont=Menlo\ Regular:h18
-
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Menlo\ 13
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h17
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
 """"""""""""    General
 
 let mapleader = ","
