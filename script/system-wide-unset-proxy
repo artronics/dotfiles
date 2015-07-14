@@ -1,4 +1,4 @@
 #!/bin/bash
 
 gsettings set org.gnome.system.proxy mode 'none'
-
+echo "Set system proxy setting to none done!"

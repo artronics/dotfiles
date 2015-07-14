@@ -6,9 +6,19 @@ if [ ! -f ~/.dotfiles/script/system-wide-unset-proxy ]; then
     exit
 fi
 
+#run system-wide-unset-proxy
+~/.dotfiles/script/system-wide-unset-proxy
+
+
+#uset http_proxy
+unset http_proxy
+unset https_proxy
+echo "http_proxy and https_proxy unset done!"
+
 #git unset proxy
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 echo "Unset proxy setting for git done!"
+
 exit
 
