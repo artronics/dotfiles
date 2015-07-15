@@ -1,14 +1,58 @@
 """""KEY BINDINGS
 
+"F3 will save the file and source ~/.vimrc
+"it is usefull when you are edditing vim configuration files
+"nnoremap <F3> :w | so $MYVIMRC
+
 let mapleader = ","
 
+"when you delete a character with x it's not going to any register
+nnoremap x "_x
+"in inser mode type jj to enter to normal mode 
 imap jj <Esc>
+"in normal mode ; works like :
 nnoremap ; :
 
+"""""""""""""CLIPBOARD MAPPINGS
+"please remember if you :set clipboard=unnamedplus
+"there is no need for icomming if block
+
+"yanking/copying and pasting key bindings
+"for dealing with system clipboard first we need to know what is current os
+"if has("gui_running")
+"  if has("gui_gtk2")
+"
+"    "This will map ctrl-c to copy selcted text to clipbord so
+"    "it will be available outside vim
+"    vnoremap <C-c> "+y
+"
+""    "if you press ctrl-v it will paste the text. remember this will
+"    "paste text from clipboard
+"    nnoremap <C-v> "+p
+"
+"  elseif has("gui_macvim")
+"
+"  elseif has("gui_win32")
+"
+"  endif
+"endif
+
+""""""""""""""Copy and Paste with ctrl-c and ctrl-v
+"map ctrl-c on visual mode to yank
+vnoremap <C-c> y
+
+"in insert mode if you press ctrl-c it will yank current line
+inoremap <C-c> <Esc>yya
+
+"In insert mode if you press ctrl-v
+inoremap <C-v> <Esc>pa
+
+"""""""""""""""New Line mappings
 "nsert a new-line after the current line by pressing Enter (Shift-Enter for inserting a line before the current line)
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+"""""""""""""""Arrow Keys
 "be coool!
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -19,19 +63,12 @@ nnoremap <right> <nop>
 "inoremap <left> <nop>
 "inoremap <right> <nop>
 
+""""""""""""""" Motions jk hl
 nnoremap j gj
 nnoremap k gk
 
-"map tab to % for easier match *{[
-"nnoremap <tab> %
-"vnoremap <tab> %
 
-"Space in normal works like in insert
-nnoremap <Space> i<Space><Esc>
-"Backsapace in normal works like in insert
-nnoremap <BS> X 
-
-"Key bindings related to Tabs
+""""""""""""""" Tabs , Open new tab and switch between tabs
 nnoremap <Leader>t :tabnew<CR>
 " Go to tab by number
 noremap <leader>1 1gt
@@ -47,6 +84,14 @@ noremap <leader>9 9gt
 let g:lasttab = 1
 nmap <C-Tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+"map tab to % for easier match *{[
+"nnoremap <tab> %
+"vnoremap <tab> %
+
+"Space in normal works like in insert
+nnoremap <Space> i<Space><Esc>
+"Backsapace in normal works like in insert
+nnoremap <BS> X 
 "Resizing vspit
 nnoremap <silent> <Leader>+ :5winc ><CR>
 nnoremap <silent> <Leader>- :5winc <<CR>
@@ -55,29 +100,6 @@ nnoremap <silent> <Leader>- :5winc <<CR>
 "vnoremap / /\v
 "
 nnoremap <leader><space> :noh<cr>
-"""Easymotion Keybindings
-" Gif config
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-
-
-
-let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-
-
-" Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-""""""""""""
 
 "to navigate between windows
 nnoremap <S-h> <C-w>h

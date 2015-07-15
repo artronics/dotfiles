@@ -1,8 +1,46 @@
-set nocompatible
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-execute pathogen#infect()
-syntax on
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\    },
+\ }
+
+NeoBundle 'Shougo/neocomplete'
+
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
+
+" You can specify revision/branch/tag.
+"NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+call neobundle#end()
 filetype plugin indent on
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+syntax on
+
 "Colorscheme
 set background=dark
 colorscheme solarized
@@ -16,6 +54,10 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif
+
+"It makes pasting/yanking possible from/to system clipboard.
+:set clipboard=unnamedplus
+
 """"""""""""    General
 
 let mapleader = ","
@@ -70,6 +112,22 @@ source ~/.vim/vimrc/vimrc_keybindings
 "first we need to check if that plugin exists, then we can source apropriate
 "file. Inorder to check whether plugin exists or not we can check a main
 "command.
+
+"CtrlP
+autocmd VimEnter * if exists(":CtrlP") | exe "source ~/.vim/plugins/ctrlp.vim" | endif
+
+"Unite
+autocmd VimEnter * if exists(":Unite") | exe "source ~/.vim/plugins/unite.vim" | endif
+
+"Neocomplete
+if !exists("g:acp_enableAtStartup")
+    exe "source ~/.vim/plugins/neocomplete.vim"
+endif
+
+"Neosnippet
+if !exists("g:neosnippet#enable_snipmate_compatibility")
+    exe "source ~/.vim/plugins/neosnippet.vim"
+endif
 
 "vim-session
 autocmd VimEnter * if exists(":SaveSession") | exe "source ~/.vim/plugins/vim-session" | endif

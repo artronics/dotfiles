@@ -1,0 +1,10 @@
+ctrlp.vim
+neobundle.vim
+neocomplete
+neosnippet
+neosnippet-snippets
+unite.vim
+vim-airline
+vim-easymotion
+vim-fugitive
+vimproc.vim
