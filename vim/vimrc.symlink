@@ -49,14 +49,14 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Menlo\ 13
   elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h17
+    set guifont=Menlo\ Regular:h22
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
 endif
 
 "It makes pasting/yanking possible from/to system clipboard.
-:set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 """"""""""""    General
 
@@ -125,9 +125,9 @@ autocmd VimEnter * if exists(":Unite") | exe "source ~/.vim/plugins/unite.vim" |
 "endif
 
 "Neosnippet
-if !exists("g:neosnippet#enable_snipmate_compatibility")
-    exe "source ~/.vim/plugins/neosnippet.vim"
-endif
+"if !exists("g:neosnippet#enable_snipmate_compatibility")
+"    exe "source ~/.vim/plugins/neosnippet.vim"
+"endif
 
 "vim-session
 autocmd VimEnter * if exists(":SaveSession") | exe "source ~/.vim/plugins/vim-session" | endif
