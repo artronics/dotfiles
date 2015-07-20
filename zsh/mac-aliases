@@ -1,0 +1,5 @@
+#!/bin/bash
+alias ls="ls -G"
+echo kir
+#open macvim on mac with m command
+alias m=mvim
