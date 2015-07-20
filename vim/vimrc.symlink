@@ -105,6 +105,7 @@ set pastetoggle=<F2>
 """""Key Binddings
 
 source ~/.vim/vimrc/vimrc_keybindings
+source ~/.vim/vimrc/search-keybindings.vim
 
 """"""PLUGINS""""""""
 "for each plugin (if necessary) there is specific file including configuration
