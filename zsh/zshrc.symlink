@@ -40,5 +40,6 @@ done
 
 unset config_files
 
-alias ls=ls
-alias la="ls -la"
+source $ZSH/oh-my-zsh.sh
+#put here what ever you want to override oh-myzsh
+~/.dotfiles/zsh/platform-specific.sh
