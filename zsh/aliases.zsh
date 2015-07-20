@@ -1,4 +1,5 @@
-alias reload!='. ~/.zshrc'
+alias s!='. ~/.zshrc'
+alias c=clear
 
 #cd related aliases
 alias cd..='cd ..'

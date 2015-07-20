@@ -17,6 +17,8 @@ alias gcm='git commit -m'
 alias gcma='git commit -am'
 alias gca='git commit -a'
 
+alias gconf='git config --global'
+
 alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
