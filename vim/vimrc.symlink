@@ -108,6 +108,7 @@ source ~/.vim/vimrc/vimrc_keybindings
 source ~/.vim/vimrc/search-keybindings.vim
 source ~/.vim/vimrc/jump-keybindings.vim
 
+
 """"""PLUGINS""""""""
 "for each plugin (if necessary) there is specific file including configuration
 "and keybindings. This file located on ~/.vim/plugins/<plugin-name>

@@ -133,3 +133,4 @@ function! s:SpaceToUnderscore()
 		iunmap <Space>
 	endif
 endfunction
+
