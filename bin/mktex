@@ -1,0 +1,70 @@
+#!/bin/bash
+
+name=$1
+#if name is empty default is "document"
+if [ -z "$name" ]; then
+    name="document"
+#    echo "no argument. the directory is 
+fi
+
+#check if there is any dir with same name
+if [ -d "$name" ]; then
+    echo "ERROR: There is already a directory named ${name}."
+    echo "Exit with error."
+    exit 1
+fi
+
+#directory structure:
+mkdir $name
+cd $name
+mkdir output
+mkdir figures
+mkdir presentation
+
+#create main files
+touch ${name}.tex
+
+#minimal boiler plate for .tex
+tex_boilerplate=$'\\documentclass{article}\n\n
+\\end{document}'
+
+#make symlink from template if exists any
+#there should be an environment variable TEMPLATE_LATEX_DIR ponting to this locatio
+if [[ ! -z $TEMPLATE_LATEX_DIR && -d "$TEMPLATE_LATEX_DIR" ]]; then 
+    ln -s ${TEMPLATE_LATEX_DIR} ./
+    if [ -f ${TEMPLATE_LATEX_DIR}/boilerplate.tex ]; then
+        cat ${TEMPLATE_LATEX_DIR}/boilerplate.tex > ${name}.tex  
+    else
+        echo "$tex_boilerplate" >> ${name}.tex
+    fi
+fi
+
+#gitignore file:
+
+#look for gitignore directory if there is bring gitignore.tex here
+gitignore_dir=~/.gitignore
+#getting gitignore with wget
+gitignore_wget="wget https://raw.githubusercontent.com/github/gitignore/master/TeX.gitignore ./.gitignore"
+if [ -d "$gitignore_dir" ]; then
+    cp ${gitignore_dir}/TeX.gitignore ./.gitignore
+
+#else if gitignore_wget; then
+#    echo "get .gitignore from repo done!"
+#    echo "in wget"
+
+else 
+    echo "There is no internet connection or a problem with internet."
+    echo "Now we are creating minimal .gitignore"
+    touch .gitignore
+fi
+gitignore=$'#Here is our added dir and files:\n
+output \n'
+echo "$gitignore" | cat - .gitignore > temp && mv temp .gitignore
+
+#Now add this to git
+git init
+git add -A 
+git commit -m "initial commit"
+
+echo "Done"
+exit 0
