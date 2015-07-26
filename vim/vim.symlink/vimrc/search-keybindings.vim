@@ -2,6 +2,3 @@
 
 nnoremap / :/
 
-"Highligth each occurance character by character while typing
-set incsearch
-set hlsearch

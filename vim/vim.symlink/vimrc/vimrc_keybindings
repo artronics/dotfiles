@@ -6,12 +6,21 @@
 
 let mapleader = ","
 
-"when you delete a character with x it's not going to any register
-nnoremap x "_x
 "in inser mode type jj to enter to normal mode 
 imap jj <Esc>
+
+" shortcut to save
+nmap <leader>, :w<cr>
+
+"when you delete a character with x or s it's not going to any register
+nnoremap x "_x
+nnoremap s "_s
+
 "in normal mode ; works like :
 nnoremap ; :
+
+" activate spell-checking alternatives
+nmap ;s :set invspell spelllang=en<cr>
 
 """""""""""""CLIPBOARD MAPPINGS
 "please remember if you :set clipboard=unnamedplus
