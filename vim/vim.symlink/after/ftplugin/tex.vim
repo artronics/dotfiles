@@ -7,3 +7,9 @@ if has("gui_running")
   set lines=999 columns=81
 endif
 
+"highlight exceeding lines and turn auto wrapping line on
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#111111
+  autocmd BufEnter * match OverLength /\%75v.*/
+augroup END
+
