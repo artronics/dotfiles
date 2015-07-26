@@ -1,17 +1,37 @@
 #!/bin/bash
 
 name=$1
-#if name is empty default is "document"
-if [ -z "$name" ]; then
-    name="document"
-#    echo "no argument. the directory is 
-fi
+template=$2
+boilerplate=$3
 
 #check if there is any dir with same name
 if [ -d "$name" ]; then
     echo "ERROR: There is already a directory named ${name}."
     echo "Exit with error."
     exit 1
+fi
+
+#if name is empty default is "document"
+if [ -z "$name" ]; then
+    name="document"
+fi
+
+#if template is empty default is "article_4.tex"
+if [ -z "$template" ]; then
+    template="article_4.tex"
+fi
+
+#We assume that for each template there is a file appended with _boilerplate
+boilerplate_suffix="_boilerplate"
+
+#if there is no boilerplate we can create minimal boilerplate
+#minimal boiler plate for .tex
+minimal_boilerplate=$'\\documentclass{article}\n\n
+\\end{document}'
+
+#if boilerplate is empty default is "article_4_boilerplate.tex"
+if [ -z "$boilerplate" ]; then
+    boilerplate="article_4${boilerplate_suffix}.tex"
 fi
 
 #directory structure:
@@ -24,18 +44,16 @@ mkdir presentation
 #create main files
 touch ${name}.tex
 
-#minimal boiler plate for .tex
-tex_boilerplate=$'\\documentclass{article}\n\n
-\\end{document}'
+echo $boilerplate
 
 #make symlink from template if exists any
 #there should be an environment variable TEMPLATE_LATEX_DIR ponting to this locatio
 if [[ ! -z $TEMPLATE_LATEX_DIR && -d "$TEMPLATE_LATEX_DIR" ]]; then 
     ln -s ${TEMPLATE_LATEX_DIR} ./
-    if [ -f ${TEMPLATE_LATEX_DIR}/boilerplate.tex ]; then
-        cat ${TEMPLATE_LATEX_DIR}/boilerplate.tex > ${name}.tex  
+    if [ -f ${TEMPLATE_LATEX_DIR}/${boilerplate} ]; then
+        cat ${TEMPLATE_LATEX_DIR}/${boilerplate} > ${name}.tex  
     else
-        echo "$tex_boilerplate" >> ${name}.tex
+        echo "$minimal_boilerplate" >> ${name}.tex
     fi
 fi
 
