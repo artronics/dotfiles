@@ -17,8 +17,10 @@ fi
 #set http_proxy and https_proxy
 http_proxy=http://$PROXY_SETTING
 https_proxy=https://$PROXY_SETTING
+
 export http_proxy
 export https_proxy
+export ALL_PROXY=$http_proxy
 echo "http_proxy and https_proxy set done!"
 
 #git proxy setting
