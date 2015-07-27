@@ -52,6 +52,8 @@ if [[ ! -z $TEMPLATE_LATEX_DIR && -d "$TEMPLATE_LATEX_DIR" ]]; then
     ln -s ${TEMPLATE_LATEX_DIR} ./
     if [ -f ${TEMPLATE_LATEX_DIR}/${boilerplate} ]; then
         cat ${TEMPLATE_LATEX_DIR}/${boilerplate} > ${name}.tex  
+        cp ${TEMPLATE_LATEX_DIR}/bib${boilerplate_suffix}.bib  ./${name}.bib  
+        
     else
         echo "$minimal_boilerplate" >> ${name}.tex
     fi
