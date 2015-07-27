@@ -8,7 +8,6 @@ let mapleader = ","
 
 "in inser mode type jj to enter to normal mode 
 imap jj <Esc>
-
 " shortcut to save
 nmap <leader>, :w<cr>
 
@@ -57,8 +56,7 @@ inoremap <C-c> <Esc>yya
 inoremap <C-v> <Esc>pa
 
 """""""""""""""New Line mappings
-"nsert a new-line after the current line by pressing Enter (Shift-Enter for inserting a line before the current line)
-nmap <S-Enter> O<Esc>
+"nsert a new-line after the current line by pressing Enter 
 nmap <CR> o<Esc>
 
 """""""""""""""Arrow Keys
@@ -127,9 +125,6 @@ nnoremap :/ :set norelativenumber<Cr>:/
 "Enter ; at the end of line by pressing ;;
 inoremap ;; <Esc>A;<Esc>
 nnoremap ;; <Esc>A;<Esc>
-
-"Save and exit with ctrl-e
-noremap <C-e> :wq<CR>
 
 
 "when you forgot to sudo before editing a file that requires root 
