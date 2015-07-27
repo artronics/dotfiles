@@ -57,8 +57,8 @@ set smartindent
 set copyindent    " copy the previous indentation on autoindenting
 
 "Relative numbers while in insert mode. Absolute numbers while in insert 
-autocmd InsertEnter * silent! :set norelativenumber
-autocmd InsertLeave,BufNewFile,VimEnter * silent! :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 "Setting related to tab
 set tabstop=4 shiftwidth=4 expandtab
