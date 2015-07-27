@@ -118,6 +118,12 @@ nnoremap <S-j> <C-w>j
 nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
 
+"""""""""""""""Number and Relative number
+nnoremap : :set norelativenumber<Cr>:
+nnoremap ? :set norelativenumber<Cr>?
+"this line dosen't work!
+nnoremap :/ :set norelativenumber<Cr>:/
+
 "Enter ; at the end of line by pressing ;;
 inoremap ;; <Esc>A;<Esc>
 nnoremap ;; <Esc>A;<Esc>
