@@ -76,6 +76,8 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
 
 """"""""""""""" Tabs , Open new tab and switch between tabs
 nnoremap <Leader>t :tabnew<CR>
