@@ -11,6 +11,10 @@ imap jj <Esc>
 " shortcut to save
 nmap <leader>, :w<cr>
 
+"Enter ; at the end of line by pressing ;;
+inoremap ;; <Esc>A;<Esc>
+nnoremap ;; <Esc>A;<Esc>
+
 "when you delete a character with x or s it's not going to any register
 nnoremap x "_x
 nnoremap s "_s
@@ -121,12 +125,9 @@ nnoremap : :set norelativenumber<Cr>:
 nnoremap ? :set norelativenumber<Cr>?
 "this line dosen't work!
 nnoremap :/ :set norelativenumber<Cr>:/
-
-"Enter ; at the end of line by pressing ;;
-inoremap ;; <Esc>A;<Esc>
-nnoremap ;; <Esc>A;<Esc>
-
-
+""""""""""""""""
+"Save session
+nnoremap <leader>s :mksession! ./.session.vim<Cr>
 "when you forgot to sudo before editing a file that requires root 
 cmap w!! w !sudo tee % >/dev/null
 
@@ -134,15 +135,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>w <C-w>v<C-w>l
 
 "Swap two words in camelCase
-nnoremap <leader>s ?[A-Z]<CR>:noh<CR>~hdwb~hhpw
+"nnoremap <leader>s ?[A-Z]<CR>:noh<CR>~hdwb~hhpw
 
 "Map space to underscore
 nnoremap <silent> <leader>_ :call <SID>SpaceToUnderscore()<CR>
-function! s:SpaceToUnderscore()
-    if !hasmapto('_', 'i')
-		inoremap <Space> _
-	else
-		iunmap <Space>
-	endif
-endfunction
-
