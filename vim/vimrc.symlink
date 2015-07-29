@@ -20,9 +20,10 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 "here is snippet repo
 Plugin 'honza/vim-snippets'
-"
+Plugin 'tpope/vim-fugitive'
 Plugin 'myusuf3/numbers.vim'
-
+"Show git sign on gutter"
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()    
 filetype plugin indent on
@@ -98,9 +99,8 @@ source ~/.vim/vimrc/jump-keybindings.vim
 "first we need to check if that plugin exists, then we can source apropriate
 "file. Inorder to check whether plugin exists or not we can check a main
 "command.
-
+source ~/.vim/vimrc/plugins_keybindings.vim
 "CtrlP
-autocmd VimEnter * if exists(":CtrlP") | exe "source ~/.vim/plugins/ctrlp.vim" | endif
 
 "Unite
 autocmd VimEnter * if exists(":Unite") | exe "source ~/.vim/plugins/unite.vim" | endif
@@ -136,7 +136,7 @@ endfunction
 function! s:SpaceToUnderscore()
     if !hasmapto('_', 'i')
 		inoremap <Space> _
-	else
+    else
 		iunmap <Space>
 	endif
 endfunction
@@ -164,3 +164,11 @@ endfunction
 autocmd VimLeave * call SaveSess()
 autocmd VimEnter * call RestoreSess()
 """"""""""""""""""
+"it change cursor shape for insert mode inside tmux
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif

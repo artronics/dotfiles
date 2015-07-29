@@ -21,7 +21,7 @@
 #dirname=${PWD##*/} 
 vim_session_name=.session.vim
 editor=vim
-args=""
+args=$1
 
 #check if we want to change EDITOR to macvim
 if [ "$1" = "mvim" ]; then

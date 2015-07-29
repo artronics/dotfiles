@@ -13,3 +13,4 @@ alias m='e mvim'
 
 #apt-get
 alias apt='sudo apt-get install -y'
+alias rmr='rm -rf'
