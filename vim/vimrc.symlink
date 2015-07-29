@@ -24,6 +24,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'myusuf3/numbers.vim'
 "Show git sign on gutter"
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline' 
 
 call vundle#end()    
 filetype plugin indent on
@@ -85,6 +87,16 @@ set noerrorbells         " don't beep
 
 set mouse=a
 
+"set ruler
+"set statusline=2
+"set statusline=%f "tail of the filename
+"set statusline+=%7*\[%n]                                  "buffernr
+"set statusline+=%1*\ %<%F\                                "File+path
+"set statusline+=%2*\ %y\                                  "FileType
+"set statusline+=%4*\ %{&ff}\                              "FileFormat(dos/unix..) 
+"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+"set statusline+=%9*\ col:%03c\                            "Colnr
+"set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly?Top/bot.
 
 """""Key Binddings
 
@@ -172,3 +184,7 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+"it highlight 81th character like so--------------------------------------------H---
+highlight ColorColumn ctermbg=gray
+call matchadd('ColorColumn', '\%81v', 100)
