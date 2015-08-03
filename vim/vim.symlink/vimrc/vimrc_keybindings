@@ -48,6 +48,7 @@ nmap ;s :set invspell spelllang=en<cr>
 "
 "  endif
 "endif
+set pastetoggle=<F2>
 
 """"""""""""""Copy and Paste with ctrl-c and ctrl-v
 "map ctrl-c on visual mode to yank
@@ -80,6 +81,12 @@ nnoremap k gk
 
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k
+nnoremap <S-j> <C-y>
+nnoremap <S-k> <C-e>
+
+""""""""""""""" Jumps
+nnoremap  g; <C-i>
+nnoremap  g, <C-o>
 
 """"""""""""""" Tabs , Open new tab and switch between tabs
 nnoremap <Leader>t :tabnew<CR>
@@ -116,8 +123,8 @@ nnoremap <leader><space> :noh<cr>
 
 "to navigate between windows
 nnoremap <S-h> <C-w>h
-nnoremap <S-j> <C-w>j
-nnoremap <S-k> <C-w>k
+"nnoremap <S-j> <C-w>j
+"nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
 
 """""""""""""""Number and Relative number
