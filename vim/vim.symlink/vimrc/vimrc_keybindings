@@ -85,8 +85,8 @@ nnoremap <S-j> <C-y>
 nnoremap <S-k> <C-e>
 
 """"""""""""""" Jumps
-nnoremap  g; <C-i>
-nnoremap  g, <C-o>
+"nnoremap  g; <C-i>
+"nnoremap  g, <C-o>
 
 """"""""""""""" Tabs , Open new tab and switch between tabs
 nnoremap <Leader>t :tabnew<CR>
