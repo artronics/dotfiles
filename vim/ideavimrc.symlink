@@ -1,7 +1,8 @@
 
 """""KEY BINDINGS
 let mapleader = ","
-
+"sourcing vimrc_keybindings
+source ~/.vim/vimrcvimrcvimr/vimrc_keybindings
 imap jj <Esc> 
 nnoremap ; :
 
