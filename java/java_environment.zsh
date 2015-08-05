@@ -16,16 +16,19 @@ if [ -d "$dir" ]; then
 fi
 
 #creating a special home for Java 7
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+
+#creating a special home for Java 7
 export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
  
 #creating a special home for Java 6
 export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
 
-#making Java7 as our default java for the system
-if [ -d "$JAVA_7_HOME" ]; then
-    export JAVA_HOME=$JAVA_7_HOME
+#making Java8 as our default java for the system
+if [ -d "$JAVA_8_HOME" ]; then
+    export JAVA_HOME=$JAVA_8_HOME
 else
-    export JAVA_HOME=$JAVA_6_HOME
+    export JAVA_HOME=$JAVA_7_HOME
 fi
 
 #Finally put maven, ant and gradle to the system path
