@@ -17,4 +17,5 @@ alias rmr='rm -rf'
 
 #my thesis
 alias ths='cd ~/Dropbox/SDWN'
+alias sdwn='cd ~/Dropbox/SDWN/Controller/SDWN'
 
