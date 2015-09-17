@@ -126,7 +126,6 @@ nnoremap <S-h> <C-w>h
 "nnoremap <S-j> <C-w>j
 "nnoremap <S-k> <C-w>k
 nnoremap <S-l> <C-w>l
-
 """""""""""""""Number and Relative number
 nnoremap : :set norelativenumber<Cr>:
 nnoremap ? :set norelativenumber<Cr>?
