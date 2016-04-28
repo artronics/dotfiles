@@ -12,17 +12,17 @@ fi
 
 dir=~/Code/Library/Java/gradle
 if [ -d "$dir" ]; then
-    export GRADLE_HOME=~/Code/Library/Java/gradle
+    #export GRADLE_HOME=~/Code/Library/Java/gradle
 fi
 
-#creating a special home for Java 7
+#creating a special home for Java 8
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 
 #creating a special home for Java 7
-export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
+#export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
  
 #creating a special home for Java 6
-export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
+#export JAVA_6_HOME=$(/usr/libexec/java_home -v1.6)
 
 #making Java8 as our default java for the system
 if [ -d "$JAVA_8_HOME" ]; then
