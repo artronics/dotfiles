@@ -82,3 +82,4 @@ plugins=(git)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH=~/.composer/vendor/bin:~/.local/bin:$PATH
 
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1

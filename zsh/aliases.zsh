@@ -15,7 +15,3 @@ alias m='e mvim'
 alias apt='sudo apt-get install -y'
 alias rmr='rm -rf'
 
-#my thesis
-alias ths='cd ~/Dropbox/SDWN'
-alias sdwn='cd ~/Dropbox/SDWN/Controller/SDWN'
-
