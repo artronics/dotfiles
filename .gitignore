@@ -1,4 +1,2 @@
-vim/vim.symlink/sessions
-git/gitconfig.symlink
-
 !*.jar
+.idea
