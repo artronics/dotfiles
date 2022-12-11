@@ -1,4 +1,5 @@
-# Jalal does dotfiles
+# dotfiles
+Installing system packages and dotfiles.
 
-Your dotfiles are how you personalize your system. These are mine.
+`ansible-playbook dotfiles`
 
