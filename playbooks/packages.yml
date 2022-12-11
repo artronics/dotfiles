@@ -1,0 +1,39 @@
+- name: "brew install packages"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Check if homebrew is available
+      block:
+        - name: try using homebrew in check_mode (no changes)
+          homebrew:
+            update_homebrew: true
+          check_mode: true
+      rescue:
+        - name: No homebrew
+          debug:
+            msg: Homebrew is not installed
+        - meta: end_play
+
+    - name: Utility
+      homebrew:
+        name: [wget, vim, zsh]
+
+    - name: Compile
+      homebrew:
+        name: [cmake, gcc, llvm]
+
+    - name: Cloud
+      homebrew:
+        name: [terraform]
+
+    - name: Programming Languages
+      block:
+        - homebrew:
+            name: [node, go]
+        - name: Rustup
+          command:
+            cmd: "curl https://sh.rustup.rs -sSf | sh -s -- -y"
+            creates: "{{ ansible_env.HOME }}/.cargo/bin/rustc"
+
+
+

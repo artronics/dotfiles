@@ -1,0 +1,32 @@
+- name: "Copy dotfiles"
+  hosts: localhost
+  connection: local
+  vars:
+    dir: "{{ playbook_dir }}/../dotfiles"
+  tasks:
+    - file:
+        path: "{{ ansible_env.HOME }}/.config"
+        state: directory
+    - template:
+        src: "{{ dir }}/zshrc"
+        dest: "{{ ansible_env.HOME }}/.zshrc"
+      vars:
+        theme: avit
+
+    - copy:
+        src: "{{ dir }}/aliases"
+        dest: "{{ ansible_env.HOME }}/.config/aliases"
+    - copy:
+        src: "{{ dir }}/vimrc"
+        dest: "{{ ansible_env.HOME }}/.vimrc"
+    - copy:
+        src: "{{ dir }}/ideavimrc"
+        dest: "{{ ansible_env.HOME }}/.ideavimrc"
+    - copy:
+        src: "{{ dir }}/tmux.conf"
+        dest: "{{ ansible_env.HOME }}/.tmux.conf"
+
+    - file: path={{ ansible_env.HOME }}/.config/alacritty state=directory
+    - copy:
+        src: "{{ dir }}/alacritty.yml"
+        dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.yml"
