@@ -29,7 +29,28 @@
     - name: Programming Languages
       block:
         - homebrew:
-            name: [node, go]
+            name: [go]
+        - name: Node
+          block:
+            - homebrew:
+                name: [node]
+            - command: "npm install -g yarn"
+        - name: Python
+          block:
+            - homebrew:
+                name: [python]
+            - shell: "curl -sSL https://install.python-poetry.org | python3 -"
+              args:
+                executable: /bin/zsh
+
+        - name: Java
+          block:
+            - homebrew:
+                name: [jenv, openjdk@11, openjdk@17, java]
+            - shell: 'eval "$(jenv init -)" && jenv enable-plugin export'
+              args:
+                executable: /bin/zsh
+
         - name: Rustup
           command:
             cmd: "curl https://sh.rustup.rs -sSf | sh -s -- -y"

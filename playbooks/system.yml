@@ -1,0 +1,15 @@
+- name: "Finishing packages with sudo permissions"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Link Java SDKs
+      block:
+        - command:
+            cmd: "sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk"
+            creates: "/Library/Java/JavaVirtualMachines/openjdk-11.jdk"
+        - command:
+            cmd: "sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk"
+            creates: "/Library/Java/JavaVirtualMachines/openjdk-17.jdk"
+
+        - command: jenv add /Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
+        - command: jenv add /Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home

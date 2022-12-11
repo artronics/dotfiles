@@ -43,7 +43,12 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+# PATH
+export PATH="$PATH:$HOME/.jenv/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(jenv init -)"
 source "$HOME/.cargo/env"
 
 source "$HOME/.config/aliases"
