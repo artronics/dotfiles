@@ -1,0 +1,10 @@
+- name: "System wide configs"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Enable key repeats for jetbrains IDEs
+      # find the full list here: https://gist.github.com/lsd/1e1826907ab7e49c536a
+      block:
+        - command: defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
+        - command: defaults write com.jetbrains.CLion ApplePressAndHoldEnabled -bool false
+

@@ -1,4 +1,4 @@
-all: packages dotfiles
+all: packages dotfiles configs
 
 packages:
 	ansible-playbook playbooks/packages.yml
@@ -9,5 +9,8 @@ packages-system:
 
 dotfiles:
 	ansible-playbook playbooks/dotfiles.yml
+
+configs:
+	ansible-playbook playbooks/configs.yml
 
 .PHONY: dotfiles packages all
