@@ -45,7 +45,6 @@ export EDITOR='vim'
 
 # PATH
 export PATH="$PATH:$HOME/.jenv/bin"
-export PATH="$HOME/.local/bin:$HOME/zls:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(jenv init -)"
@@ -53,3 +52,7 @@ source "$HOME/.cargo/env"
 
 source "$HOME/.config/aliases"
 
+# TODO: switch to ripgrep instead of find
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.local/bin:$HOME/zls:/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH"

@@ -16,7 +16,7 @@
 
     - name: Utility
       homebrew:
-        name: [wget, vim, zsh]
+        name: [wget, vim, zsh, fzf, ripgrep]
 
     - name: Compile
       homebrew:

@@ -35,10 +35,15 @@ nnoremap <leader>rc :%s///gc
 nnoremap <leader><Tab> :bnext<CR>
 nnoremap <leader><leader><Tab> :bprevious<CR>
 
+" Clipboard
+"set clipboard=unnamedplus
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+
 """"""""""""    General
 set updatetime=100
 set autoread
-"set clipboard=unnamed
+
 set nowrap        " don't wrap lines
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set backspace=2 " make backspace work like most other apps
