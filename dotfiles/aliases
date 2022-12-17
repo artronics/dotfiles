@@ -5,3 +5,5 @@ alias pip="pip3"
 
 alias gs="git status"
 alias gcl="git clone --recursive"
+
+alias bi="brew install"
