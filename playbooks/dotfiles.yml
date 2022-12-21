@@ -18,6 +18,10 @@
         theme: avit
 
     - copy:
+        src: "{{ dir }}/localrc"
+        dest: "{{ ansible_env.HOME }}/.localrc"
+        force: no
+    - copy:
         src: "{{ dir }}/aliases"
         dest: "{{ ansible_env.HOME }}/.config/aliases"
     - copy:

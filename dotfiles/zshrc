@@ -56,3 +56,5 @@ source "$HOME/.config/aliases"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.local/bin:$HOME/zls:/Library/Frameworks/Mono.framework/Versions/Current/Commands:$PATH"
+
+source "$HOME/.localrc"
