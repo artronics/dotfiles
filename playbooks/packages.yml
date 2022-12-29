@@ -20,7 +20,7 @@
 
     - name: Compile
       homebrew:
-        name: [cmake, gcc, llvm]
+        name: [cmake, ninja, gcc, llvm]
 
     - name: Cloud
       homebrew:
@@ -46,7 +46,7 @@
         - name: Java
           block:
             - homebrew:
-                name: [jenv, openjdk@11, openjdk@17, java]
+                name: [jenv, openjdk@11, openjdk@17, java, gradle]
             - shell: 'eval "$(jenv init -)" && jenv enable-plugin export'
               args:
                 executable: /bin/zsh
