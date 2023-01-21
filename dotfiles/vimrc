@@ -19,6 +19,11 @@ xmap L $
 omap H ^
 omap L $
 
+nmap j gj
+nmap k gk
+nmap l gl
+nmap h gh
+
 set signcolumn=yes
 imap jj <Esc>
 nmap <CR> o<Esc>
@@ -55,6 +60,11 @@ set number
 set autoindent    " always set autoindenting on
 set smartindent
 set copyindent    " copy the previous indentation on autoindenting
+
+
+set nolist
+set linebreak
+" set wrap " above two options work best with wrap. This option should be disabled for code but can be enabled for text
 
 "Setting related to tab
 set tabstop=2 shiftwidth=2 expandtab
