@@ -4,13 +4,18 @@
   vars:
     dir: "{{ playbook_dir }}/../dotfiles"
   tasks:
-    - file:
-        path: "{{ ansible_env.HOME }}/.config"
-        state: directory
-    - file:
-        path: "{{ ansible_env.HOME }}/.local/bin"
-        recurse: true
-        state: directory
+    - name:
+      block:
+        - file:
+            path: "{{ ansible_env.HOME }}/.config"
+            state: directory
+        - file:
+            path: "{{ ansible_env.HOME }}/.config/nvim"
+            state: directory
+        - file:
+            path: "{{ ansible_env.HOME }}/.local/bin"
+            recurse: true
+            state: directory
     - template:
         src: "{{ dir }}/zshrc"
         dest: "{{ ansible_env.HOME }}/.zshrc"

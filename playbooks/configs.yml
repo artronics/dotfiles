@@ -32,3 +32,9 @@
       args:
         creates: "{{ ansible_env.HOME }}/.vim/autoload/plug.vim"
 
+    - name: neovim
+      shell: |
+          wget https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua -O ~/.config/nvim/init.lua
+      args:
+        creates: "{{ ansible_env.HOME }}/.config/nvim/init.lua"
+
