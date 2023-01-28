@@ -46,8 +46,10 @@ export EDITOR='vim'
 # PATH
 export PATH="$PATH:$HOME/.jenv/bin"
 
-BREW_PREFIX=$(brew --prefix)
+# Don't use --prefix. zsh config can to a state that PATH can't resolve brew
+BREW_PREFIX=/opt/homebrew
 eval "$($BREW_PREFIX/bin/brew shellenv)"
+
 eval "$(jenv init -)"
 source "$HOME/.cargo/env"
 
