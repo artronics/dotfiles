@@ -1,6 +1,5 @@
 """""""""""" Key Map
 let mapleader = ","
-let maplocalleader="\<space>"
 
 imap jj <Esc>
 nmap <CR> o<Esc>
@@ -18,7 +17,6 @@ nnoremap U <C-r>
 " nnoremap <space> viw
 " vnoremap <space> e
 nnoremap <bs> diw
-nnoremap ;; A;<esc>
 inoremap ;; <esc>A;
 
 nnoremap <leader>rr :%s///g
@@ -31,7 +29,7 @@ set iskeyword=@,48-57,_,192-255
 """"""""""""    General
 set updatetime=100
 set autoread
-"set clipboard=unnamed
+set clipboard+=unnamedplus,ideaput
 set nowrap        " don't wrap lines
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set backspace=2 " make backspace work like most other apps
@@ -69,52 +67,30 @@ inoremap <left> <left>
 inoremap <right> <right>
 
 " Plugin emulators
-set highlightedyank "highlight yanked objects
-set surround
-set argtextobj
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/argtextobj.vim'
+let g:argtextobj_pairs="(:),{:},<:>"
+"set sneak " Useful but messes with s. Use s<xx> like f<x> but search for two chars
+"Plug 'easymotion/vim-easymotion'
 "set NERDTree
 "set exchange
 set 'vim-paragraph-motion'
 set textobj-indent
 
-" Settings
-" set clipboard+=ideaput
-
 " Keymaps
-nmap <C-S-j> <C-w>j
-nmap <C-S-k> <C-w>k
-nmap <C-S-h> <C-w>h
-nmap <C-S-l> <C-w>l
-
-nnoremap <leader><bar> :vsplit<CR>
-nnoremap <leader>_ :split<CR>
-nmap <leader><leader>w <Action>(Unsplit)
-nmap <leader>w <Action>(CloseContent)
-
 nmap U <Action>($Redo)
-nmap <C-S-p> <Action>(PasteMultiple)
 
 imap <C-S-i> <Action>(ParameterInfo)
 
-nmap <C-r> <Action>(Run)
-imap <C-r> <Action>(Run)
-
-nmap <C-d> <Action>(Debug)
+" Goto and Search
+nmap <leader>F <Action>(FindInPath)
 nmap <leader>d <Action>(GotoDeclaration)
 
 nmap <leader>f <Action>(GotoFile)
 nmap <leader>c <Action>(GotoClass)
 nmap <leader>s <Action>(GotoSymbol)
 nmap <leader>a <Action>(GotoAction)
-
-nmap <leader>F <Action>(FindInPath)
-
-
-nmap <leader>gg <Action>(ChangesView.Commit)
-
-nmap <c-z> <Action>(ToggleDistractionFreeMode)
-nmap <leader>t <Action>(ActivateTerminalToolWindow)
-nmap <leader><leader>t <Action>(HideActiveWindow)
 
 nmap <c-u> <Action>(GotoNextError)
 nmap <c-s-u> <Action>(GotoPreviousError)
@@ -128,6 +104,9 @@ nmap <leader><leader>o <Action>(OptimizeImports)
 nmap <leader><leader>s <Action>(SurroundWith)
 nmap <leader><leader>x <Action>(Unwrap)
 
+nmap <C-h> <Action>(MoveElementLeft)
+nmap <C-l> <Action>(MoveElementRight)
+
 nmap <leader>ii <Action>(ImplementMethods)
 nmap <leader>oo <Action>(OverrideMethods)
 
@@ -137,20 +116,29 @@ nmap <c-j> <Action>(MoveLineDown)
 nmap <c-k> <Action>(MoveLineUp)
 
 " mapped to exapand/shrink selection instead
-" nmap <c-s-j> <Action>(MoveStatementDown)
-" nmap <c-s-k> <Action>(MoveStatementUp)
+" nmap <c-s-j> <Action> extend -> Couldn't find action
+" nmap <c-s-k> <Action> shrink
 
 " Git
-nmap <leader>gc <Action>(ActivateCommitToolWindow)
-nmap <leader>gp <Action>(Vcs.Push)
-nmap <leader>gb <Action>(Git.Branches)
-nmap <leader>gj <Action>(VcsShowNextChangeMarker)
-nmap <leader>gk <Action>(VcsShowPrevChangeMarker)
-nmap <leader>gm <Action>(Git.Merge)
+" nmap <C-;> <Action> commit
+" nmap <C-S-;> <Action> push
+nmap ggb <Action>(Git.Branches)
+nmap ggj <Action>(VcsShowNextChangeMarker)
+nmap ggk <Action>(VcsShowPrevChangeMarker)
+nmap ggm <Action>(Git.Merge)
+nmap ggh <Action>(Vcs.ShowTabbedFileHistory)
 
-nmap <c-h> <Action>(PrevSplitter)
-nmap <c-l> <Action>(NextSplitter)
+" Window
+nmap gwc <Action>(CloseContent)
+nmap gwh <Action>(HideActiveWindow)
+nmap <C-S-h> <C-w>h
+nmap <C-S-l> <C-w>l
+nmap <c-z> <Action>(ToggleDistractionFreeMode)
 
-"nmap <leader>w <Action>(KJumpAction.Word0)
-" nmap <leader>l <Action>(KJumpAction.Line)
+" Split
+{nnoremap} <leader><bar> :vsplit<CR>
+
+" Tool
+nmap <leader>w <Action>(KJumpAction.Word0)
+nmap <leader>l <Action>(KJumpAction.Line)
 

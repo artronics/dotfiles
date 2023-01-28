@@ -33,6 +33,9 @@
         src: "{{ dir }}/vimrc"
         dest: "{{ ansible_env.HOME }}/.vimrc"
     - copy:
+        src: "{{ dir }}/init.lua"
+        dest: "{{ ansible_env.HOME }}/.config/nvim/init.lua"
+    - copy:
         src: "{{ dir }}/ideavimrc"
         dest: "{{ ansible_env.HOME }}/.ideavimrc"
     - copy:
