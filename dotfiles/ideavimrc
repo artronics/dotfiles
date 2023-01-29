@@ -1,26 +1,7 @@
 """""""""""" Key Map
 let mapleader = ","
-
 imap jj <Esc>
-nmap <CR> o<Esc>
-"imap <C-o> <esc>o " mapped in idea to next/prev edit; as idea keymap it
-"doesn't distinguish between insert and normal mode
 
-nmap H ^
-nmap L $
-xmap H ^
-xmap L $
-omap H ^
-omap L $
-
-nnoremap U <C-r>
-" nnoremap <space> viw
-" vnoremap <space> e
-nnoremap <bs> diw
-inoremap ;; <esc>A;
-
-nnoremap <leader>rr :%s///g
-nnoremap <leader>rc :%s///gc
 
 " For clojure
 " set iskeyword=@,48-57,_,192-255,?,-,*,!,+,/,=,<,>,.,:,$
@@ -40,7 +21,6 @@ set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 
 set foldlevel=9
 
-"Search related conf also look ~/.vim/vimrc/search-keybindings.vim
 "set showmatch     " set show matching parenthesis
 "set ignorecase    " ignore case when searching
 "set smartcase     " ignore case if search pattern is all lowercase,
@@ -81,7 +61,18 @@ set textobj-indent
 " Keymaps
 nmap U <Action>($Redo)
 
-imap <C-S-i> <Action>(ParameterInfo)
+nmap <CR> o<Esc>
+onoremap p i(
+
+nmap H ^
+nmap L $
+xmap H ^
+xmap L $
+omap H ^
+omap L $
+
+nnoremap <bs> diw
+inoremap ;; <esc>A;
 
 " Goto and Search
 nmap <leader>F <Action>(FindInPath)
@@ -90,10 +81,10 @@ nmap <leader>d <Action>(GotoDeclaration)
 nmap <leader>f <Action>(GotoFile)
 nmap <leader>c <Action>(GotoClass)
 nmap <leader>s <Action>(GotoSymbol)
+nmap <leader>S <Action>(FileStructurePopup)
 nmap <leader>a <Action>(GotoAction)
 
-nmap <c-u> <Action>(GotoNextError)
-nmap <c-s-u> <Action>(GotoPreviousError)
+nmap <leader>t <Action>(GotoTest)
 
 nmap <leader>ge <Action>(ShowErrorDescription)
 
@@ -102,18 +93,19 @@ nmap <leader><leader>r <Action>(RenameElement)
 nmap <leader><leader>f <Action>(ReformatCode)
 nmap <leader><leader>o <Action>(OptimizeImports)
 nmap <leader><leader>s <Action>(SurroundWith)
-nmap <leader><leader>x <Action>(Unwrap)
+nmap <leader><leader>S <Action>(Unwrap)
+
+nmap <leader><leader>x :%s///g<left><left><left>
+vmap <leader><leader>x :s///g<left><left><left>
+
+" There is no keybinding or action for creating test. Goto will ask for creating test
+nmap <leader><leader>t <Action>(GotoTest)
+
+nmap gii <Action>(ImplementMethods)
+nmap gio <Action>(OverrideMethods)
 
 nmap <C-h> <Action>(MoveElementLeft)
 nmap <C-l> <Action>(MoveElementRight)
-
-nmap <leader>ii <Action>(ImplementMethods)
-nmap <leader>oo <Action>(OverrideMethods)
-
-vmap <c-j> <Action>(MoveLineDown)
-vmap <c-k> <Action>(MoveLineUp)
-nmap <c-j> <Action>(MoveLineDown)
-nmap <c-k> <Action>(MoveLineUp)
 
 " mapped to exapand/shrink selection instead
 " nmap <c-s-j> <Action> extend -> Couldn't find action
@@ -125,20 +117,27 @@ nmap <c-k> <Action>(MoveLineUp)
 nmap ggb <Action>(Git.Branches)
 nmap ggj <Action>(VcsShowNextChangeMarker)
 nmap ggk <Action>(VcsShowPrevChangeMarker)
+nmap ggu <Action>(Vcs.UpdateProject)
 nmap ggm <Action>(Git.Merge)
 nmap ggh <Action>(Vcs.ShowTabbedFileHistory)
 
 " Window
 nmap gwc <Action>(CloseContent)
+nmap gws <Action>(ActivateStructureToolWindow)
 nmap gwh <Action>(HideActiveWindow)
-nmap <C-S-h> <C-w>h
+
 nmap <C-S-l> <C-w>l
+nmap <C-S-h> <C-w>h
 nmap <c-z> <Action>(ToggleDistractionFreeMode)
 
 " Split
-{nnoremap} <leader><bar> :vsplit<CR>
+nnoremap <leader><bar> :vsplit<CR>
 
 " Tool
 nmap <leader>w <Action>(KJumpAction.Word0)
 nmap <leader>l <Action>(KJumpAction.Line)
 
+" String Manipulation
+vmap gsa <Action>(StringManipulation.Group.Align)
+vmap gsc <Action>(StringManipulation.Group.SwitchCase)
+vmap gsa <Action>(StringManipulation.AlignSelections)
