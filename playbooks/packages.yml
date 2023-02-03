@@ -16,7 +16,7 @@
 
     - name: Utility
       homebrew:
-        name: [wget, vim, neovim, zsh, fzf, ripgrep]
+        name: [ wget, jq, vim, neovim, zsh, fzf, ripgrep ]
 
     - name: Compile
       homebrew:
@@ -24,7 +24,7 @@
 
     - name: Cloud
       homebrew:
-        name: [terraform]
+        name: [ terraform, awscli ]
 
     - name: Programming Languages
       block:

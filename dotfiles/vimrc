@@ -21,8 +21,6 @@ omap L $
 
 nmap j gj
 nmap k gk
-nmap l gl
-nmap h gh
 
 set signcolumn=yes
 imap jj <Esc>
