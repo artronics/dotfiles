@@ -24,7 +24,7 @@
 
     - name: Cloud
       homebrew:
-        name: [ terraform, awscli ]
+        name: [ terraform, tfenv, awscli ]
 
     - name: Programming Languages
       block:
