@@ -92,8 +92,8 @@ nmap <leader>ge <Action>(ShowErrorDescription)
 nmap <leader><leader>r <Action>(RenameElement)
 nmap <leader><leader>f <Action>(ReformatCode)
 nmap <leader><leader>o <Action>(OptimizeImports)
-nmap <leader><leader>s <Action>(SurroundWith)
-nmap <leader><leader>S <Action>(Unwrap)
+vmap <leader><leader>s <Action>(SurroundWith)
+vmap <leader><leader>S <Action>(Unwrap)
 
 nmap <leader><leader>x :%s///g<left><left><left>
 vmap <leader><leader>x :s///g<left><left><left>

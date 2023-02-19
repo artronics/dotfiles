@@ -16,7 +16,7 @@
 
     - name: Utility
       homebrew:
-        name: [ wget, jq, vim, neovim, zsh, fzf, ripgrep ]
+        name: [ wget, jq, yq, vim, neovim, zsh, fzf, ripgrep ]
 
     - name: Compile
       homebrew:
