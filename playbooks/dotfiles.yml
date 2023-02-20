@@ -16,6 +16,10 @@
             path: "{{ ansible_env.HOME }}/.local/bin"
             recurse: true
             state: directory
+        - file:
+            path: "{{ ansible_env.HOME }}/.terraform.d/plugin-cache"
+            recurse: true
+            state: directory
     - template:
         src: "{{ dir }}/zshrc"
         dest: "{{ ansible_env.HOME }}/.zshrc"
@@ -41,6 +45,9 @@
     - copy:
         src: "{{ dir }}/tmux.conf"
         dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    - copy:
+        src: "{{ dir }}/terraformrc"
+        dest: "{{ ansible_env.HOME }}/.terraformrc"
 
     - file: path={{ ansible_env.HOME }}/.config/alacritty state=directory
     - copy:
