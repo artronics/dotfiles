@@ -23,8 +23,16 @@
         name: [cmake, ninja, gcc, llvm]
 
     - name: Cloud
-      homebrew:
-        name: [ terraform, awscli ]
+      block:
+        - homebrew:
+            name: [ tfenv, awscli ]
+        - name: install terraform
+          shell:
+            cmd: |
+              tfenv install latest 
+              tfenv use latest
+          args:
+            executable: /bin/zsh
 
     - name: Programming Languages
       block:
